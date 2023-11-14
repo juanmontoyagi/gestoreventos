@@ -4,6 +4,6 @@ import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface Comentario extends R2dbcRepository<Comentario, String> {
+public interface ComentarioRepository extends R2dbcRepository<ComentarioRepository, String> {
 
 }
