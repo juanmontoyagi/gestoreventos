@@ -1,7 +1,7 @@
 package com.jumogira.gestoreventos.controller;
 
-import com.jumogira.gestoreventos.model.Evento;
-import com.jumogira.gestoreventos.service.EventoService;
+import com.jumogira.gestoreventos.model.Usuario;
+import com.jumogira.gestoreventos.service.UsuarioService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -13,25 +13,25 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Controller
-@RequestMapping("/eventos")
+@RequestMapping("/usuario")
 @AllArgsConstructor
-public class EventoController {
+public class UsuarioController {
 
-    EventoService eventoService;
+    UsuarioService usuarioService;
 
     @PostMapping("/")
-    public Mono<Evento> guardar(@RequestBody @Validated Evento evento) {
-        return eventoService.save(evento);
+    public Mono<Usuario> guardar(@RequestBody @Validated Usuario usuario) {
+        return usuarioService.save(usuario);
     }
 
     @GetMapping("/")
-    public Flux<Evento> consultarEventos() {
-        return eventoService.findAll();
+    public Flux<Usuario> consultarUsuarios() {
+        return usuarioService.findAll();
     }
 
     @GetMapping("/")
-    public Mono<Evento> consultarEvento(String id) {
-        return eventoService.findById(id);
+    public Mono<Usuario> consultarUsuarioPorId(String id) {
+        return usuarioService.findById(id);
     }
 
 }

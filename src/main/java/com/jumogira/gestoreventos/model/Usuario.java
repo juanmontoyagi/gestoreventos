@@ -14,6 +14,7 @@ public class Usuario {
     private String id;
     private String nombre;
     private String correo;
+    private int edad;
     private boolean genero;
     private Evento evento;
 
