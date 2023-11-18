@@ -18,7 +18,7 @@ public class EventoService {
 
     private final Logger LOGGER = LoggerFactory.getLogger(EventoService.class);
 
-    private final EventoRepository eventoRepository;
+    private EventoRepository eventoRepository;
 
     public Mono<Evento> save(Evento evento) {
         return eventoRepository.save(evento);

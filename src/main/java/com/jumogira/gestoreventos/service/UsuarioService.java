@@ -1,10 +1,7 @@
 package com.jumogira.gestoreventos.service;
 
-import com.jumogira.gestoreventos.model.Evento;
 import com.jumogira.gestoreventos.model.Usuario;
-import com.jumogira.gestoreventos.repository.EventoRepository;
 import com.jumogira.gestoreventos.repository.UsuarioRepository;
-import com.jumogira.gestoreventos.util.ConstantesEventos;
 import com.jumogira.gestoreventos.util.ConstantesUsuario;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -21,7 +18,7 @@ public class UsuarioService {
 
     private final Logger LOGGER = LoggerFactory.getLogger(UsuarioService.class);
 
-    private final UsuarioRepository usuarioRepository;
+    private UsuarioRepository usuarioRepository;
 
     public Mono<Usuario> save(Usuario usuario) {
         return usuarioRepository.save(usuario);

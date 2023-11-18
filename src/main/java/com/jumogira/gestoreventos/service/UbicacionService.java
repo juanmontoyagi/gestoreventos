@@ -18,13 +18,13 @@ public class UbicacionService {
 
     private final Logger LOGGER = LoggerFactory.getLogger(UbicacionService.class);
 
-    private final UbicacionRepository ubicacionRepository;
+    private UbicacionRepository ubicacionRepository;
 
     public Mono<Ubicacion> save(Ubicacion ubicacion) {
         return ubicacionRepository.save(ubicacion);
     }
 
-    public Mono<Ubicacion> findById(String id) {
+    public Mono<Ubicacion> findById(Integer id) {
         return ubicacionRepository.findById(id)
                 .onErrorResume(error -> {
                     LOGGER.error(ConstantesUbicacion.ERROR_AL_BUSCAR_UBICACION + id);

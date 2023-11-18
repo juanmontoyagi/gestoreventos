@@ -5,6 +5,6 @@ import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UbicacionRepository extends R2dbcRepository<Ubicacion, String> {
+public interface UbicacionRepository extends R2dbcRepository<Ubicacion, Integer> {
 
 }

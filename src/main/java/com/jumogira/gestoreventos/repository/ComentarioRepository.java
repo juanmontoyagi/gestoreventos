@@ -8,8 +8,4 @@ import reactor.core.publisher.Flux;
 @Repository
 public interface ComentarioRepository extends R2dbcRepository<Comentario, String> {
 
-    Flux<Comentario> findComentariosByEventoId(String eventoId);
-
-    Flux<Comentario> findComentariosByUsuario(String usuarioId);
-
 }
