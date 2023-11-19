@@ -26,9 +26,24 @@ public class UbicacionController {
         return ubicacionService.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Mono<Ubicacion> consultarUbicacionId(Integer id) {
+    @GetMapping(value = "/{id}")
+    public Mono<Ubicacion> consultarUbicacionId(@PathVariable("id") Integer id) {
         return ubicacionService.findById(id);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public Mono<Void> eliminarUbicacionId(@PathVariable("id") Integer id) {
+        return ubicacionService.deleteById(id);
+    }
+
+    @DeleteMapping(value = "/delete-ubicaciones")
+    public Mono<Void> eliminarUbicaciones() {
+        return ubicacionService.deleteAll();
+    }
+
+    @PutMapping(value = "/{id}")
+    public Mono<Ubicacion> actualizarUbicacionId(@PathVariable("id") Integer id, @RequestBody @Validated Ubicacion ubicacion) {
+        return ubicacionService.update(id, ubicacion);
     }
 
 }

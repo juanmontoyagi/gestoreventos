@@ -31,7 +31,7 @@ public class UbicacionService {
                     return Mono.empty();
                 })
                 .switchIfEmpty(Mono.error(
-                        new ResponseStatusException(HttpStatus.NOT_FOUND, ConstantesUbicacion.NINGUN_UBICACION_ENCONTRADO + id)
+                        new ResponseStatusException(HttpStatus.NOT_FOUND, ConstantesUbicacion.UBICACION_NO_ENCONTRADA + id)
                                 .getMostSpecificCause()));
     }
 
@@ -45,5 +45,49 @@ public class UbicacionService {
                         new ResponseStatusException(HttpStatus.NOT_FOUND, ConstantesUbicacion.NINGUN_UBICACION_ENCONTRADO)
                                 .getMostSpecificCause()));
     }
+
+    public Mono<Void> deleteById(Integer id) {
+        return ubicacionRepository.findById(id)
+                .flatMap(ubicacion -> ubicacionRepository.deleteById(ubicacion.getId()).thenReturn(ubicacion))
+                .onErrorResume(throwable -> {
+                    LOGGER.error(ConstantesUbicacion.ERROR_AL_BUSCAR_UBICACION + id);
+                    return Mono.empty();
+                })
+                .switchIfEmpty(Mono.error(
+                        new ResponseStatusException(HttpStatus.NOT_FOUND, ConstantesUbicacion.UBICACION_NO_ENCONTRADA + id)
+                                .getMostSpecificCause())).then();
+    }
+
+    public Mono<Void> deleteAll() {
+        return ubicacionRepository.findAll()
+                .flatMap(ubicaciones -> ubicacionRepository.deleteAll().thenReturn(ubicaciones))
+                .onErrorResume(throwable -> {
+                    LOGGER.error(ConstantesUbicacion.ERROR_AL_CONSULTAR_TODAS_LAS_UBICACIONES, throwable);
+                    return Mono.empty();
+                })
+                .switchIfEmpty(Mono.error(
+                        new ResponseStatusException(HttpStatus.NOT_FOUND, ConstantesUbicacion.NINGUN_UBICACION_ENCONTRADO)
+                                .getMostSpecificCause())).then();
+    }
+
+    public Mono<Ubicacion> update(Integer id, Ubicacion ubicacion) {
+        return ubicacionRepository.findById(id)
+                .onErrorResume(throwable -> {
+                    LOGGER.error(ConstantesUbicacion.ERROR_AL_BUSCAR_UBICACION + id);
+                    return Mono.empty();
+                })
+                .switchIfEmpty(Mono.error(
+                        new ResponseStatusException(HttpStatus.NOT_FOUND, ConstantesUbicacion.UBICACION_NO_ENCONTRADA + id)
+                                .getMostSpecificCause()))
+                .flatMap(ubicacionEncontrada -> {
+                    ubicacionEncontrada.setNombre(ubicacion.getNombre());
+                    ubicacionEncontrada.setDireccion(ubicacion.getDireccion());
+                    ubicacionEncontrada.setCiudad(ubicacion.getCiudad());
+                    ubicacionEncontrada.setCapacidad(ubicacion.getCapacidad());
+                    return ubicacionRepository.save(ubicacionEncontrada);
+                });
+    }
+
+
 
 }
