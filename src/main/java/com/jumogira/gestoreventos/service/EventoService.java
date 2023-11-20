@@ -24,7 +24,7 @@ public class EventoService {
         return eventoRepository.save(evento);
     }
 
-    public Mono<Evento> findById(String id) {
+    public Mono<Evento> findById(Integer id) {
         return eventoRepository.findById(id)
                 .onErrorResume(error -> {
                     LOGGER.error(ConstantesEventos.ERROR_AL_BUSCAR_EVENTO + id);

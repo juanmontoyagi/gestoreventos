@@ -24,7 +24,7 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
-    public Mono<Usuario> findById(String id) {
+    public Mono<Usuario> findById(Integer id) {
         return usuarioRepository.findById(id)
                 .onErrorResume(error -> {
                     LOGGER.error(ConstantesUsuario.ERROR_AL_BUSCAR_USUARIO + id);

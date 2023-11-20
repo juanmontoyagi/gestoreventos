@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 
 import java.util.List;
 
@@ -13,7 +14,8 @@ import java.util.List;
 @Setter
 public class Evento {
 
-    private String id;
+    @Id
+    private Integer id;
     private String titulo;
     private String descripcion;
     private String fecha;

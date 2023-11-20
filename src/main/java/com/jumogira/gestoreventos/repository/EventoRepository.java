@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 
 @Repository
-public interface EventoRepository extends R2dbcRepository<Evento, String> {
+public interface EventoRepository extends R2dbcRepository<Evento, Integer> {
 
     Flux<Evento> findByEstado(boolean estado);
 

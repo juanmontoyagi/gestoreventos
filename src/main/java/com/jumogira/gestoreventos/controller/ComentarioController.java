@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,18 +21,18 @@ public class ComentarioController {
     ComentarioService comentarioService;
 
     @PostMapping("/")
-    public Mono<Comentario> guardar(@RequestBody @Validated Comentario evento) {
-        return comentarioService.save(evento);
+    public Mono<Comentario> guardar(@RequestBody @Validated Comentario comentario) {
+        return comentarioService.save(comentario);
     }
 
-    @GetMapping("/")
-    public Flux<Comentario> consultarComentariosEvento(@RequestBody @Validated String eventoId) {
-        return comentarioService.buscarComentariosPorEvento(eventoId);
+    @GetMapping("/comentarios")
+    public Flux<Comentario> consultarComentarios() {
+        return comentarioService.findAll();
     }
 
-    @GetMapping("/")
-    public Flux<Comentario> consultarComentariosUsuario(@RequestBody @Validated String usuarioId) {
-        return comentarioService.buscarComentariosPorUsuario(usuarioId);
+    @GetMapping(value = "/{id}")
+    public Mono<Comentario> consultarComentarioId(@PathVariable("id") Integer id) {
+        return comentarioService.findById(id);
     }
 
 }
