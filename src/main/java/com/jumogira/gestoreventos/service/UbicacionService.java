@@ -83,7 +83,6 @@ public class UbicacionService {
                     ubicacionEncontrada.setNombre(ubicacion.getNombre());
                     ubicacionEncontrada.setDireccion(ubicacion.getDireccion());
                     ubicacionEncontrada.setCiudad(ubicacion.getCiudad());
-                    ubicacionEncontrada.setCapacidad(ubicacion.getCapacidad());
                     return ubicacionRepository.save(ubicacionEncontrada);
                 });
     }

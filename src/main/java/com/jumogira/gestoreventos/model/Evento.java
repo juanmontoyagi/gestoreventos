@@ -1,17 +1,16 @@
 package com.jumogira.gestoreventos.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
-
-import java.util.List;
+import org.springframework.data.relational.core.mapping.Table;
 
 @AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
+@Data
+@Table("evento")
 public class Evento {
 
     @Id
@@ -19,8 +18,6 @@ public class Evento {
     private String titulo;
     private String descripcion;
     private String fecha;
-    private boolean estado;
-    private Ubicacion ubicacion;
-    private List<Usuario> asistentes;
+    private int capacidad;
 
 }

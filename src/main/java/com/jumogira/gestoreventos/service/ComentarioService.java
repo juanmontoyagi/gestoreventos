@@ -1,12 +1,8 @@
 package com.jumogira.gestoreventos.service;
 
 import com.jumogira.gestoreventos.model.Comentario;
-import com.jumogira.gestoreventos.model.Ubicacion;
 import com.jumogira.gestoreventos.repository.ComentarioRepository;
 import com.jumogira.gestoreventos.util.ConstantesComentario;
-import com.jumogira.gestoreventos.util.ConstantesEventos;
-import com.jumogira.gestoreventos.util.ConstantesUbicacion;
-import com.jumogira.gestoreventos.util.ConstantesUsuario;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

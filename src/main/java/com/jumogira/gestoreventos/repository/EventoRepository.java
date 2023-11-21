@@ -8,8 +8,4 @@ import reactor.core.publisher.Flux;
 @Repository
 public interface EventoRepository extends R2dbcRepository<Evento, Integer> {
 
-    Flux<Evento> findByEstado(boolean estado);
-
-    Flux<Evento> findByFecha(String fecha);
-
 }

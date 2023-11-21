@@ -16,7 +16,6 @@ public class Ubicacion {
     private String nombre;
     private String direccion;
     private String ciudad;
-    private int capacidad;
 
     public Integer getId() {
         return id;
@@ -50,11 +49,4 @@ public class Ubicacion {
         this.ciudad = ciudad;
     }
 
-    public int getCapacidad() {
-        return capacidad;
-    }
-
-    public void setCapacidad(int capacidad) {
-        this.capacidad = capacidad;
-    }
 }

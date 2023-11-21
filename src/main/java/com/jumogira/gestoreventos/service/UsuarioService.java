@@ -17,9 +17,7 @@ import reactor.core.publisher.Mono;
 public class UsuarioService {
 
     private final Logger LOGGER = LoggerFactory.getLogger(UsuarioService.class);
-
     private UsuarioRepository usuarioRepository;
-
     public Mono<Usuario> save(Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
