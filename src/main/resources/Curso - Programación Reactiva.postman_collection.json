@@ -1,0 +1,440 @@
+{
+	"info": {
+		"_postman_id": "bf273375-7a8a-4d5c-8999-e8bf4dd8e018",
+		"name": "Curso - Programación Reactiva",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5661508"
+	},
+	"item": [
+		{
+			"name": "Prog. Reactiva - Actividad 1",
+			"item": [
+				{
+					"name": "Ubicacion",
+					"item": [
+						{
+							"name": "Save - Ubicacion Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Bar Bartender 2\",\r\n    \"direccion\": \"Carrera 55\",\r\n    \"ciudad\": \"Medellin\",\r\n    \"capacidad\": 150\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:6090/ubicacion/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6090",
+									"path": [
+										"ubicacion",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar - Ubicaciones Copy",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:6090/ubicacion/ubicaciones",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6090",
+									"path": [
+										"ubicacion",
+										"ubicaciones"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener - Ubicacion Copy",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "Actualizar - Ubicacion Copy",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Bar Bartender 675\",\r\n    \"direccion\": \"Carrera 55\",\r\n    \"ciudad\": \"Medellin\",\r\n    \"capacidad\": 150\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:6090/ubicacion/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6090",
+									"path": [
+										"ubicacion",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Borrar - Ubicacion Copy",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:6090/ubicacion/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6090",
+									"path": [
+										"ubicacion",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Borrar - Ubicaciones Copy",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:6090/ubicacion/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6090",
+									"path": [
+										"ubicacion",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Usuario",
+					"item": [
+						{
+							"name": "Save - Usuario",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Juan Montoya 2\",\r\n    \"correo\": \"juan@email.com\",\r\n    \"edad\": 18,\r\n    \"genero\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:6090/usuario/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6090",
+									"path": [
+										"usuario",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar - Usuario",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:6090/usuario/usuarios",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6090",
+									"path": [
+										"usuario",
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener - Usuario",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:6090/usuario/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6090",
+									"path": [
+										"usuario",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Evento",
+					"item": [
+						{
+							"name": "Save - Evento",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"titulo\": \"Proyecto X\",\r\n    \"descripcion\": \"La película\",\r\n    \"fecha\": \"19-11-2023\",\r\n    \"capacidad\": 150\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:6090/evento/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6090",
+									"path": [
+										"evento",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar - Eventos",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:6090/evento/eventos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6090",
+									"path": [
+										"evento",
+										"eventos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener - Eventos",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:6090/evento/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6090",
+									"path": [
+										"evento",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Comentario",
+					"item": [
+						{
+							"name": "Save - Comentario",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"autor\": 1,\r\n    \"evento\": 1,\r\n    \"texto\": \"Prueba de Texto Evento. \",\r\n    \"fecha\": \"19-11-2023\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:6090/comentario/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6090",
+									"path": [
+										"comentario",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar - Comentarios",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"autorId\": 1,\r\n    \"eventoId\": 1,\r\n    \"texto\": \"Prueba de Texto Evento. \",\r\n    \"fecha\": \"19-11-2023\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:6090/comentario/comentarios",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6090",
+									"path": [
+										"comentario",
+										"comentarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener - Comentario",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"autorId\": 1,\r\n    \"eventoId\": 1,\r\n    \"texto\": \"Prueba de Texto Evento. \",\r\n    \"fecha\": \"19-11-2023\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:6090/comentario/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6090",
+									"path": [
+										"comentario",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
