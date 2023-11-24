@@ -9,7 +9,6 @@ public class CustomHealthIndicator extends AbstractHealthIndicator {
     @Override
     protected void doHealthCheck(org.springframework.boot.actuate.health.Health.Builder builder) throws Exception {
         builder.up()
-                .withDetail("app", "Alive and Kicking")
-                .withDetail("error", "Nothing! I'm good.");
+                .withDetail("API OK", "API OK");
     }
 }

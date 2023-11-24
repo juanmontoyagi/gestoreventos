@@ -1,6 +1,7 @@
 package com.jumogira.gestoreventos.service;
 
 import com.jumogira.gestoreventos.model.Evento;
+import com.jumogira.gestoreventos.model.IOperacionSeguridad;
 import com.jumogira.gestoreventos.repository.EventoRepository;
 import com.jumogira.gestoreventos.util.ConstantesEventos;
 import lombok.AllArgsConstructor;
@@ -12,6 +13,8 @@ import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Objects;
+
 @Service
 @AllArgsConstructor
 public class EventoService {
@@ -21,6 +24,7 @@ public class EventoService {
     private EventoRepository eventoRepository;
 
     public Mono<Evento> save(Evento evento) {
+
         return eventoRepository.save(evento);
     }
 
@@ -45,4 +49,12 @@ public class EventoService {
                         new ResponseStatusException(HttpStatus.NOT_FOUND, ConstantesEventos.NINGUN_EVENTO_ENCONTRADO)
                                 .getMostSpecificCause()));
     }
+
+    public void asignarSeguridad(Integer id){
+        Evento evento=eventoRepository.findById(id).block();
+        if (!Objects.isNull(evento))
+            ((IOperacionSeguridad) evento).iniciarProcesoAsignacionSeguridad(evento.getCapacidad());
+    }
+
+
 }

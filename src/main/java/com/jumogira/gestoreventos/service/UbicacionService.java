@@ -1,9 +1,12 @@
 package com.jumogira.gestoreventos.service;
 
+import com.jumogira.gestoreventos.model.IOperacionesGenerales;
 import com.jumogira.gestoreventos.model.Ubicacion;
 import com.jumogira.gestoreventos.repository.UbicacionRepository;
 import com.jumogira.gestoreventos.util.ConstantesUbicacion;
 import lombok.AllArgsConstructor;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -14,7 +17,7 @@ import reactor.core.publisher.Mono;
 
 @Service
 @AllArgsConstructor
-public class UbicacionService {
+public class UbicacionService implements IOperacionesGenerales {
 
     private final Logger LOGGER = LoggerFactory.getLogger(UbicacionService.class);
 
@@ -87,6 +90,13 @@ public class UbicacionService {
                 });
     }
 
-
-
+    @Override
+    public String iniciarProcesoCotizacion(Integer idUbicacion) {
+        Ubicacion ubicacion = ubicacionRepository.findById(idUbicacion).block();
+        if (ObjectUtils.isNotEmpty(ubicacion) && StringUtils.isNotEmpty(ubicacion.getNombre())) {
+            return ConstantesUbicacion.INICIAR_PROCESO_COTIZACION + ubicacion.getNombre();
+        } else {
+            return ConstantesUbicacion.ERROR_PROCESO_COTIZACION;
+        }
+    }
 }
